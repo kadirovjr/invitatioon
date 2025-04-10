@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Invitation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="invitation-container">
+    <div class="invitation-card">
+      <h1>You're Invited!</h1>
+      <h2>Exclusive Event</h2>
+      <p>Join us for an amazing time filled with surprises!</p>
+      <p>Date: <span class="event-date">April 30, 2025</span></p>
+      <button class="rsvp-button">RSVP Now</button>
+    </div>
+  </div>
+
+  <script>
+    const invitationCard = document.querySelector('.invitation-card');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(invitationCard);
+  </script>
+</body>
+</html>
